@@ -1,10 +1,13 @@
 import { User } from './user.entity';
 import { Product } from './../../products/entities/product.entity';
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Order {
-  @Column({ type: 'datetime' })
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column({ type: 'date' })
   date: Date;
 
   @Column({ type: 'int' })

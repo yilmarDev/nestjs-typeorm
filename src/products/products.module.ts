@@ -10,9 +10,19 @@ import { BrandsService } from './services/brands.service';
 
 import { CategoriesController } from './controllers/categories.controller';
 import { CategoriesService } from './services/categories.service';
+import { Category } from './entities/category.entity';
+import { Brand } from './entities/brand.entity';
+import { User } from 'src/users/entities/user.entity';
+import { Customer } from 'src/users/entities/customer.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Product])],
+  imports: [
+    TypeOrmModule.forFeature([Product]),
+    TypeOrmModule.forFeature([Category]),
+    TypeOrmModule.forFeature([Brand]),
+    TypeOrmModule.forFeature([User]),
+    TypeOrmModule.forFeature([Customer]),
+  ],
   controllers: [ProductsController, CategoriesController, BrandsController],
   providers: [ProductsService, BrandsService, CategoriesService],
   exports: [ProductsService],
